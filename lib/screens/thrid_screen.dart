@@ -15,6 +15,7 @@ class _ThridScreenState extends State<ThridScreen> {
   final JsonDecoder _decoder = const JsonDecoder();
   List userList = [];
   int pageApi = 1;
+  int perPage = 8;
 
   @override
   void initState() {
@@ -24,7 +25,7 @@ class _ThridScreenState extends State<ThridScreen> {
   }
 
   getUserList() async {
-    String url = 'https://reqres.in/api/users?page=$pageApi';
+    String url = 'https://reqres.in/api/users?page=$pageApi&per_page=$perPage';
     dynamic res = await http.get(Uri.parse(url)).then((http.Response response) {
       final int statusCode = response.statusCode;
 
